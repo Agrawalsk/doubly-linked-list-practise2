@@ -25,12 +25,20 @@ public class DoublyLinkedList {
 
     void displayDoublyLinkedList(Node head) {
         Node temp = head;
+        System.out.print("null -> ");
         while (temp != null) {
             System.out.print(temp.data + " ");
             temp = temp.next;
             if (temp != null) System.out.print("<-> ");
         }
         System.out.println("-> null");
+    }
+    void displayReverseDoublyLinkedList(Node head){
+        if(head==null){
+            return;
+        }
+        displayReverseDoublyLinkedList(head.next);
+        System.out.print(head.data+" <-> ");
     }
 
     static class Node {
@@ -57,6 +65,7 @@ class Main {
         doublyLinkedList.add(17);
 //        System.out.println(doublyLinkedList.size);
         doublyLinkedList.displayDoublyLinkedList(doublyLinkedList.head);
+        doublyLinkedList.displayReverseDoublyLinkedList(doublyLinkedList.head);
 
     }
 }
